@@ -59,7 +59,6 @@ const DashboardLayout = () => {
 
   const [selected, setSelected] = useState(0);
 
-  console.log(theme);
 
   const { onToggleMode } = useSettings();
 
