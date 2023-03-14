@@ -27,7 +27,7 @@ import {
 } from "phosphor-react";
 import { useTheme } from "@mui/material/styles";
 import { useDispatch } from "react-redux";
-import { ToggleSidebar} from "../redux/slices/app";
+import { ToggleSidebar ,UpdateSidebarType} from "../redux/slices/app";
 import AntSwitch from "./AntSwitch";
 const Contact = () => {
   const theme = useTheme();
@@ -122,7 +122,9 @@ const Contact = () => {
           >
             <Typography variant="subtitle2">Media, Links & Docs</Typography>
             <Button
-          
+              onClick={() => {
+                dispatch(UpdateSidebarType("SHARED"));
+              }}
               endIcon={<CaretRight />}
             >
               401
@@ -146,7 +148,9 @@ const Contact = () => {
               <Typography variant="subtitle2">Starred Messages</Typography>
             </Stack>
             <IconButton
-  
+              onClick={() => {
+                dispatch(UpdateSidebarType("STARRED"));
+              }}
             >
               <CaretRight />
             </IconButton>
