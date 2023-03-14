@@ -9,7 +9,7 @@ import {
   Tab,
   Grid,
 } from "@mui/material";
-import { CaretLeft, X } from "phosphor-react";
+import { CaretLeft } from "phosphor-react";
 import { useTheme } from "@mui/material/styles";
 import { useDispatch } from "react-redux";
 import { UpdateSidebarType } from "../redux/slices/app";
