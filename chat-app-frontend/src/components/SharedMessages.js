@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import { faker } from "@faker-js/faker";
 import {
   Box,
@@ -13,8 +13,10 @@ import { CaretLeft, X } from "phosphor-react";
 import { useTheme } from "@mui/material/styles";
 import { useDispatch } from "react-redux";
 import { UpdateSidebarType } from "../redux/slices/app";
-const SharedMessages = () => {
+import { SHARED_DOCS, SHARED_LINKS } from "../data";
+import { DocMsg, LinkMsg } from "./Conversation/MsgTypes";
 
+const SharedMessages = () => {
   const theme = useTheme();
   const dispatch = useDispatch();
   const [value, setValue] = React.useState(0);
@@ -62,8 +64,8 @@ const SharedMessages = () => {
           <Tab label="Links" />
           <Tab label="Docs" />
         </Tabs>
-         {/* Body */}
-         <Stack
+        {/* Body */}
+        <Stack
           sx={{
             height: "100%",
             position: "relative",
@@ -94,11 +96,11 @@ const SharedMessages = () => {
 
               case 1:
                 // Links
-                
+                return SHARED_LINKS.map((el) => <LinkMsg el={el} />);
 
               case 2:
                 // Docs
-       
+                return SHARED_DOCS.map((el) => <DocMsg el={el} />);
 
               default:
                 break;
@@ -107,7 +109,7 @@ const SharedMessages = () => {
         </Stack>
       </Stack>
     </Box>
-  )
-}
+  );
+};
 
-export default SharedMessages
+export default SharedMessages;
