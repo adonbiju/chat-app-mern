@@ -15,12 +15,12 @@ import { useDispatch } from "react-redux";
 import { UpdateSidebarType } from "../redux/slices/app";
 const SharedMessages = () => {
 
-    const theme = useTheme();
-    const dispatch = useDispatch();
-    const [value, setValue] = React.useState(0);
-    const handleChange = (event, newValue) => {
-        setValue(newValue);
-      };
+  const theme = useTheme();
+  const dispatch = useDispatch();
+  const [value, setValue] = React.useState(0);
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
   return (
     <Box sx={{ width: 320, height: "100vh" }}>
       <Stack sx={{ height: "100%" }}>
@@ -62,8 +62,51 @@ const SharedMessages = () => {
           <Tab label="Links" />
           <Tab label="Docs" />
         </Tabs>
+         {/* Body */}
+         <Stack
+          sx={{
+            height: "100%",
+            position: "relative",
+            flexGrow: 1,
+            overflowY: "scroll",
+          }}
+          p={3}
+          spacing={value === 1 ? 1 : 3}
+        >
+          {(() => {
+            switch (value) {
+              case 0:
+                // Images
+                return (
+                  <Grid container spacing={2}>
+                    {[0, 1, 2, 3, 4, 5, 6].map((el) => {
+                      return (
+                        <Grid item xs={4}>
+                          <img
+                            src={faker.image.avatar()}
+                            alt={faker.name.fullName()}
+                          />
+                        </Grid>
+                      );
+                    })}
+                  </Grid>
+                );
+
+              case 1:
+                // Links
+                
+
+              case 2:
+                // Docs
+       
+
+              default:
+                break;
+            }
+          })()}
         </Stack>
-        </Box>
+      </Stack>
+    </Box>
   )
 }
 
