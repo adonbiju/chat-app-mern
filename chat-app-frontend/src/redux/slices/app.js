@@ -33,3 +33,13 @@ const slice = createSlice({
     };
   }
   
+  export function UpdateSidebarType(type) {
+    return async () => {
+      dispatch(
+        slice.actions.updateSidebarType({
+          type,
+        })
+      );
+    };
+  }
+  
