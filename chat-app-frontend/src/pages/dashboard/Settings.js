@@ -20,7 +20,7 @@ import {
   PencilCircle,
 } from "phosphor-react";
 import { faker } from "@faker-js/faker";
-// import Shortcuts from "../../sections/settings/Shortcuts";
+ import Shortcuts from "../../sections/settings/Shortcuts";
 
 const Settings = () => {
   const theme = useTheme();
@@ -148,7 +148,9 @@ const Settings = () => {
         </Box>
         {/* RightPanel */}
       </Stack>
-    
+      {openShortcuts && (
+        <Shortcuts open={openShortcuts} handleClose={handleCloseShortcuts} />
+      )}
     </>
   );
 };
