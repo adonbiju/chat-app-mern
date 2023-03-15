@@ -16,11 +16,12 @@ import {
   
   import { useTheme } from "@mui/material/styles";
   import { SimpleBarStyle } from "../../components/Scrollbar";
-
+  import {CallLogElement} from "../../components/CallElement";
+  import { CallList } from "../../data";
 
   
   const Call = () => {
-    
+  
     const theme = useTheme();
     return (
       <>
@@ -78,15 +79,16 @@ import {
               <Stack sx={{ flexGrow: 1, overflow: "scroll", height: "100%" }}>
                 <SimpleBarStyle timeout={500} clickOnTrack={false}>
                   <Stack spacing={2.4}>
-                   
-
+                    {CallList.map((el, idx) => {
+                      return <CallLogElement key={idx} {...el} />;
+                    })}
                   </Stack>
                 </SimpleBarStyle>
               </Stack>
             </Stack>
           </Box>
         </Stack>
-
+       
       </>
     );
   };
