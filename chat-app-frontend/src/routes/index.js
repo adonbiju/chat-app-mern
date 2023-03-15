@@ -19,14 +19,6 @@ const Loadable = (Component) => (props) => {
 export default function Router() {
   return useRoutes([
     {
-      path: "/auth",
-      element: <MainLayout />,
-      children: [
-        {element: <LoginPage />, path: "login"},
-       
-      ]
-    },
-    {
       path: "/",
       element: <DashboardLayout />,
       children: [
@@ -36,6 +28,15 @@ export default function Router() {
         { path: "404", element: <Page404 /> },
         { path: "*", element: <Navigate to="/404" replace /> },
       ],
+    },
+    {
+      path: "/auth",
+      element: <MainLayout />,
+      children: [
+        {element: <LoginPage />, path: "login"},
+        { path: "register", element: <RegisterPage /> },
+       
+      ]
     },
     { path: "*", element: <Navigate to="/404" replace /> },
   ]);
@@ -49,3 +50,4 @@ const Settings = Loadable(
   lazy(() => import("../pages/dashboard/Settings")),
 );
 const Page404 = Loadable(lazy(() => import("../pages/Page404")));
+const RegisterPage = Loadable(lazy(() => import("../pages/auth/Register")));
