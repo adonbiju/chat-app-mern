@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 // @mui
-import { Stack, Typography, Link } from '@mui/material';
+import { Stack, Typography, Link, } from '@mui/material';
 import AuthSocial from '../../sections/auth/AuthSocial';
-
+import RegisterForm from "../../sections/auth/RegisterForm";
 // ----------------------------------------------------------------------
 
 export default function Register() {
@@ -21,7 +21,7 @@ export default function Register() {
         </Stack>
       </Stack>
       {/* Form */}
-    
+      <RegisterForm  />
 
       <Typography
         component="div"
@@ -35,7 +35,7 @@ export default function Register() {
         <Link underline="always" color="text.primary">
           Privacy Policy
         </Link>
-        .
+        
       </Typography>
 
      <AuthSocial />
