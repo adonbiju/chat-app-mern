@@ -108,7 +108,49 @@ const CallElement = ({ img, name, incoming, missed, online, id }) => {
   const theme = useTheme();
 
   return (
-   <></>
+    <StyledChatBox
+      sx={{
+        width: "100%",
+
+        borderRadius: 1,
+
+        backgroundColor: theme.palette.background.paper,
+      }}
+      p={2}
+    >
+      <Stack
+        direction="row"
+        alignItems={"center"}
+        justifyContent="space-between"
+      >
+        <Stack direction="row" spacing={2}>
+          {" "}
+          {online ? (
+            <StyledBadge
+              overlap="circular"
+              anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+              variant="dot"
+            >
+              <Avatar alt={name} src={img} />
+            </StyledBadge>
+          ) : (
+            <Avatar alt={name} src={img} />
+          )}
+          <Stack spacing={0.3} alignItems="center" direction={"row"}>
+            <Typography variant="subtitle2">{name}</Typography>
+          </Stack>
+        </Stack>
+        <Stack direction={"row"} spacing={2} alignItems={"center"}>
+          <IconButton>
+            <Phone style={{ color: theme.palette.primary.main }} />
+          </IconButton>
+
+          <IconButton>
+            <VideoCamera style={{ color: theme.palette.primary.main }} />
+          </IconButton>
+        </Stack>
+      </Stack>
+    </StyledChatBox>
   );
 };
 

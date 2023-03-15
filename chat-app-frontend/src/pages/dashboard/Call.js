@@ -18,10 +18,17 @@ import {
   import { SimpleBarStyle } from "../../components/Scrollbar";
   import {CallLogElement} from "../../components/CallElement";
   import { CallList } from "../../data";
-
+  import StartCall from "../../sections/main/StartCall";
   
   const Call = () => {
+    const [openDialog, setOpenDialog] = useState(false);
   
+    const handleCloseDialog = () => {
+      setOpenDialog(false);
+    }
+    const handleOpenDialog = () => {
+      setOpenDialog(true);
+    }
     const theme = useTheme();
     return (
       <>
@@ -71,7 +78,7 @@ import {
                 <Typography variant="subtitle2" sx={{}} component={Link}>
                   Start a conversation
                 </Typography>
-                <IconButton >
+                <IconButton onClick={handleOpenDialog}>
                   <Phone style={{ color: theme.palette.primary.main }} />
                 </IconButton>
               </Stack>
@@ -88,7 +95,7 @@ import {
             </Stack>
           </Box>
         </Stack>
-       
+        {openDialog && <StartCall open={openDialog} handleClose={handleCloseDialog} />}
       </>
     );
   };
