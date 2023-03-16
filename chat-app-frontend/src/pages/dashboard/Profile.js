@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, IconButton, Stack, Typography } from "@mui/material";
 import { CaretLeft } from "phosphor-react";
-
+import ProfileForm from "../../sections/settings/ProfileForm";
 
 const Profile = () => {
   return (
@@ -33,7 +33,7 @@ const Profile = () => {
             </Stack>
 
             {/* Profile Edit Form */}
-            
+            <ProfileForm/>
           </Stack>
         </Box>
 
