@@ -20,7 +20,7 @@ import {
   PencilCircle,
 } from "phosphor-react";
 import { faker } from "@faker-js/faker";
- import Shortcuts from "../../sections/settings/Shortcuts";
+import Shortcuts from "../../sections/Dashboard/Settings/Shortcuts";
 
 const Settings = () => {
   const theme = useTheme();
@@ -39,38 +39,38 @@ const Settings = () => {
       key: 0,
       icon: <Bell size={20} />,
       title: "Notifications",
-      onclick: () => {},
+      onclick: () => { },
     },
     {
       key: 1,
       icon: <Lock size={20} />,
       title: "Privacy",
-      onclick: () => {},
+      onclick: () => { },
     },
     {
       key: 2,
       icon: <Key size={20} />,
       title: "Security",
-      onclick: () => {},
+      onclick: () => { },
     },
     {
       key: 3,
       icon: <PencilCircle size={20} />,
       title: "Theme",
       //   onclick: handleOpenTheme,
-      onclick: () => {},
+      onclick: () => { },
     },
     {
       key: 4,
       icon: <Image size={20} />,
       title: "Chat Wallpaper",
-      onclick: () => {},
+      onclick: () => { },
     },
     {
       key: 5,
       icon: <Note size={20} />,
       title: "Request Account Info",
-      onclick: () => {},
+      onclick: () => { },
     },
     {
       key: 6,
@@ -83,7 +83,7 @@ const Settings = () => {
       key: 7,
       icon: <Info size={20} />,
       title: "Help",
-      onclick: () => {},
+      onclick: () => { },
     },
   ];
 

@@ -1,10 +1,10 @@
 import React, { useCallback } from "react";
 import * as Yup from "yup";
 // form
-import { useForm} from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import FormProvider, { RHFTextField } from "../../components/hook-form";
-import { Stack,Button } from "@mui/material";
+import FormProvider, { RHFTextField } from "../../../components/hook-form";
+import { Stack, Button } from "@mui/material";
 
 
 const ProfileForm = () => {
@@ -62,7 +62,7 @@ const ProfileForm = () => {
   return (
     <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
       <Stack spacing={4}>
-    
+
 
         <RHFTextField
           helperText={"This name is visible to your contacts"}
@@ -84,15 +84,15 @@ const ProfileForm = () => {
             type="submit"
             variant="contained"
             sx={{
+              bgcolor: "text.primary",
+              color: (theme) =>
+                theme.palette.mode === "light" ? "common.white" : "grey.800",
+              "&:hover": {
                 bgcolor: "text.primary",
                 color: (theme) =>
                   theme.palette.mode === "light" ? "common.white" : "grey.800",
-                "&:hover": {
-                  bgcolor: "text.primary",
-                  color: (theme) =>
-                    theme.palette.mode === "light" ? "common.white" : "grey.800",
-                },
-              }}
+              },
+            }}
           >
             Save
           </Button>

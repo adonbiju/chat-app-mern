@@ -3,7 +3,7 @@ import { Navigate, useRoutes } from "react-router-dom";
 
 // layouts
 import DashboardLayout from "../layouts/dashboard";
-import MainLayout from "../layouts/main";
+import AuthLayout from "../layouts/auth";
 // config
 import { DEFAULT_PATH } from "../config";
 import LoadingScreen from "../components/LoadingScreen";
@@ -34,7 +34,7 @@ export default function Router() {
     },
     {
       path: "/auth",
-      element: <MainLayout />,
+      element: <AuthLayout />,
       children: [
         {element: <LoginPage />, path: "login"},
         { path: "register", element: <RegisterPage /> },

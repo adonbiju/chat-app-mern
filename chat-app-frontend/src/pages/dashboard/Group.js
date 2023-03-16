@@ -17,7 +17,7 @@ import {
   SearchIconWrapper,
   StyledInputBase,
 } from "../../components/Search";
-import CreateGroup from "../../sections/main/CreateGroup";
+import CreateGroup from "../../sections/Dashboard/CreateGroup"
 
 const Group = () => {
   const [openDialog, setOpenDialog] = useState(false);

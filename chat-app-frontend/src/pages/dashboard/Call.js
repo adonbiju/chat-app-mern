@@ -18,7 +18,7 @@ import {
   import { SimpleBarStyle } from "../../components/Scrollbar";
   import {CallLogElement} from "../../components/CallElement";
   import { CallList } from "../../data";
-  import StartCall from "../../sections/main/StartCall";
+  import StartCall from "../../sections/Dashboard/StartCall";
   
   const Call = () => {
     const [openDialog, setOpenDialog] = useState(false);
