@@ -83,7 +83,16 @@ const ProfileForm = () => {
             size="large"
             type="submit"
             variant="contained"
-            loading={isSubmitSuccessful || isSubmitting}
+            sx={{
+                bgcolor: "text.primary",
+                color: (theme) =>
+                  theme.palette.mode === "light" ? "common.white" : "grey.800",
+                "&:hover": {
+                  bgcolor: "text.primary",
+                  color: (theme) =>
+                    theme.palette.mode === "light" ? "common.white" : "grey.800",
+                },
+              }}
           >
             Save
           </Button>
