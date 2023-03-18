@@ -50,7 +50,28 @@ exports.register = async (req, res, next) => {
     }
   };
   
-
+  exports.sendOTP = async (req, res, next) => {
+    const { userId } = req;
+    const new_otp = otpGenerator.generate(6, {
+      upperCaseAlphabets: false,
+      specialChars: false,
+      lowerCaseAlphabets: false,
+    });
+  
+    const otp_expiry_time = Date.now() + 10 * 60 * 1000; // 10 Mins after otp is sent
+  
+    await User.findByIdAndUpdate(userId, {
+      otp: new_otp,
+      otp_expiry_time: otp_expiry_time,
+    });
+  
+    // TODO send mail
+  
+    res.status(200).json({
+      status: "success",
+      message: "OTP Sent Successfully!",
+    });
+  };
 
 // User Login
 exports.login = async (req, res, next) => {
