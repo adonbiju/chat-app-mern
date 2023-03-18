@@ -71,6 +71,19 @@ userSchema.methods.correctPassword = async function (
     return await bcrypt.compare(candidatePassword, userPassword);
   };
   
+  userSchema.pre("save", async function (next) {
+    // Only run this function if password was actually modified
+    if (!this.isModified("otp")) return next();
+  
+    // Hash the otp with cost of 12
+    this.otp = await bcrypt.hash(this.otp, 12);
+  
+    next();
+  });
 
+  userSchema.methods.correctOTP = async function (candidateOTP, userOTP) {
+    return await bcrypt.compare(candidateOTP, userOTP);
+  };
+  
 const User = new mongoose.model("User", userSchema);
 module.exports = User;
