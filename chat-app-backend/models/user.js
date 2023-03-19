@@ -32,6 +32,9 @@ const userSchema = new mongoose.Schema({
     // unselect
     type: String,
   },
+  passwordConfirm:{
+    type: String,
+  },
   passwordChangedAt: {
     // unselect
     type: Date,
