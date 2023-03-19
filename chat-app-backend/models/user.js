@@ -67,7 +67,7 @@ const userSchema = new mongoose.Schema({
   },
 });
 
-userSchema.methods.correctPassword = async function (
+  userSchema.methods.correctPassword = async function (
     candidatePassword,
     userPassword
   ) {
@@ -99,6 +99,19 @@ userSchema.methods.correctPassword = async function (
     this.passwordResetExpires = Date.now() + 10 * 60 * 1000;
   
     return resetToken;
+  };
+
+  userSchema.methods.changedPasswordAfter = function (JWTTimeStamp) {
+    if (this.passwordChangedAt) {
+      const changedTimeStamp = parseInt(
+        this.passwordChangedAt.getTime() / 1000,
+        10
+      );
+      return JWTTimeStamp < changedTimeStamp;
+    }
+  
+    // FALSE MEANS NOT CHANGED
+    return false;
   };
 const User = new mongoose.model("User", userSchema);
 module.exports = User;
